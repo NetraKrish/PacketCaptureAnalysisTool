@@ -1,14 +1,15 @@
 from filter_packets import filter
 
-time_data = []
-source_ip_data = []
-dest_ip_data = []
-protocol_data = []
-length_data = []
-info_data = []
 
 
 def parse(icmp_data):
+
+    time_data = []
+    source_ip_data = []
+    dest_ip_data = []
+    protocol_data = []
+    length_data = []
+    info_data = []
     for packet in icmp_data:
         time_data.append(packet[0])
         source_ip_data.append(packet[1])
