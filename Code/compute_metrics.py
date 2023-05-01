@@ -1,4 +1,4 @@
-from filter_packets import get_icmp_packets
+
 import re
 
 

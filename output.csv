@@ -14,43 +14,43 @@ Average Echo Request Hop Count,2
  
 Node2  
 Echo Requests Sent,Echo Requests Received,Echo Replies Sent,Echo Replies Received
-82,160,28,214
+110,309,77,342
 Echo Request Bytes sent (bytes),Echo Request Data Sent (bytes)
-53040,49596
+83048,78428
 Echo Request Bytes Received (bytes),Echo Request Data Received (bytes)
-113816,107096
+225164,212186
  
-Average RTT (milliseconds),2.68
-Echo Request Throughput (kB/sec),241.6
-Echo Request Goodput (kB/sec),225.9
-Average Reply Delay,55.65
-Average Echo Request Hop Count,4
+Average RTT (milliseconds),2.01
+Echo Request Throughput (kB/sec),375.8
+Echo Request Goodput (kB/sec),354.9
+Average Reply Delay,1095.42
+Average Echo Request Hop Count,6
  
 Node3  
 Echo Requests Sent,Echo Requests Received,Echo Replies Sent,Echo Replies Received
-72,98,17,153
+106,483,94,495
 Echo Request Bytes sent (bytes),Echo Request Data Sent (bytes)
-53070,50046
+78512,74060
 Echo Request Bytes Received (bytes),Echo Request Data Received (bytes)
-62908,58792
+345678,325392
  
-Average RTT (milliseconds),2.78
-Echo Request Throughput (kB/sec),265.2
-Echo Request Goodput (kB/sec),250.1
-Average Reply Delay,54.86
-Average Echo Request Hop Count,3
+Average RTT (milliseconds),1.91
+Echo Request Throughput (kB/sec),388.4
+Echo Request Goodput (kB/sec),366.3
+Average Reply Delay,1165.19
+Average Echo Request Hop Count,8
  
 Node4  
 Echo Requests Sent,Echo Requests Received,Echo Replies Sent,Echo Replies Received
-108,86,4,190
+216,567,98,685
 Echo Request Bytes sent (bytes),Echo Request Data Sent (bytes)
-75232,70696
+150464,141392
 Echo Request Bytes Received (bytes),Echo Request Data Received (bytes)
-42388,38776
+391346,367532
  
-Average RTT (milliseconds),3.04
-Echo Request Throughput (kB/sec),229.3
-Echo Request Goodput (kB/sec),215.4
-Average Reply Delay,53.31
-Average Echo Request Hop Count,3
+Average RTT (milliseconds),1.55
+Echo Request Throughput (kB/sec),449.9
+Echo Request Goodput (kB/sec),422.8
+Average Reply Delay,1346.12
+Average Echo Request Hop Count,6
  

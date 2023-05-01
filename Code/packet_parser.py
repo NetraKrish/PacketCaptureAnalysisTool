@@ -1,6 +1,21 @@
-from filter_packets import get_icmp_packets
+from filter_packets import filter
 
-icmp_data = get_icmp_packets()
+time_data = []
+source_ip_data = []
+dest_ip_data = []
+protocol_data = []
+length_data = []
+info_data = []
 
-# for packet in icmp_data:
-#     print(packet[0] + " " + packet[1] + " " + packet[2] + " " + packet[3] + " " + packet[4] + " " + packet[5])
+
+def parse(icmp_data):
+    for packet in icmp_data:
+        time_data.append(packet[0])
+        source_ip_data.append(packet[1])
+        dest_ip_data.append(packet[2])
+        protocol_data.append(packet[3])
+        length_data.append(packet[4])
+        info_data.append(packet[5])
+
+    return time_data, source_ip_data, dest_ip_data, protocol_data, length_data, info_data, icmp_data
+
