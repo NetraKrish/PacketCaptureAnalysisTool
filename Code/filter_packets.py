@@ -1,4 +1,4 @@
-def get_icmp_packets():
+def get_icmp_packets(filename):
     icmp_data = []
 
 
@@ -9,7 +9,7 @@ def get_icmp_packets():
     length_data = []
     info_data = []
 
-    with open('PacketCaptureAnalysisTool/Captures/Node1.txt', 'r') as f:
+    with open(filename, 'r') as f:
         lines = f.readlines()
         for i in range(len(lines)):
             if "ICMP" in lines[i]:
