@@ -3,7 +3,6 @@ import re
 
 
 def compute(info,length,ip,source,destination,timearr,ar,num) :
-	#Data Metrics
 	b_ereqr=0
 	no_ereq=0
 	d_ereqr=0
@@ -21,19 +20,20 @@ def compute(info,length,ip,source,destination,timearr,ar,num) :
 	hopsum=0
 	
 	for i in range(0,len(info)):
+			#check if request or reply
 			if "Echo (ping) request " in info[i]:
-				
-				
+				no_ereq+=1
+				#check of sent or received
 				if source[i]==ip:
+					#for roundtrip, throughput and goodput calculation
 					reptime = float(ar[0][i+1])
 					time = abs(reptime - float(timearr[i]))
-				
 					totaltime+=time
-					no_ereq+=1
 					no_ereqs+=1
 					b_ereqs+=int(length[i])
 					d_ereqs+=(int(length[i])-42)
 				else:
+					#for average reply delay
 					reptime2 = float(ar[0][i+1])
 					time2 = abs(reptime2 - float(timearr[i]))
 				
@@ -42,16 +42,18 @@ def compute(info,length,ip,source,destination,timearr,ar,num) :
 					d_ereqr+=(int(length[i])-42)
 					no_ereqr+=1
 			if "Echo (ping) reply " in info[i]:
-				ttl_match = re.search(r'ttl=(\d+)', info[i])
-				if ttl_match:
-					ttl = float(ttl_match.group(1))
-					hopsum+=(abs(129-ttl))
+				
 
 				no_erep+=1
-				if source[i]=='192.168.100.1':
+				if source[i]==ip:
 					no_ereps+=1
 					
 				else:
+					#for average hop
+					ttl_match = re.search(r'ttl=(\d+)', info[i])
+					if ttl_match:
+						ttl = float(ttl_match.group(1))
+						hopsum+=(abs(129-ttl))
 					no_erepr+=1
 				
 						
@@ -60,7 +62,7 @@ def compute(info,length,ip,source,destination,timearr,ar,num) :
 	ert = round(b_ereqs/totaltime/1000,1)	
 	erg = round(d_ereqs/totaltime/1000,1)	
 	ard = round((totaltime2/no_ereqr)*1000000,2)
-	ah=round(hopsum/no_ereq)
+	ah=round(hopsum/no_ereqs)
 	if (ip == "192.168.100.1"):
 		file = open("./output.csv","w")
 	else: 
@@ -83,5 +85,5 @@ def compute(info,length,ip,source,destination,timearr,ar,num) :
 	file.write(" \n")
 	file.close()
 	
-print('called compute function in compute_metrics.py')
+
 
