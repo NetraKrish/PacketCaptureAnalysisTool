@@ -1,8 +1,8 @@
 from filter_packets import get_icmp_packets
-
+import re
 
 ar = get_icmp_packets()
-print(set(ar[1]))
+
 def compute(info,length,ip,source,destination) :
 	#Data Metrics
 	b_ereqr=0
@@ -22,7 +22,9 @@ def compute(info,length,ip,source,destination) :
 	for i in range(0,len(info)):
 			if "Echo (ping) request " in info[i]:
 				
-			
+				reptime = float(info[i].split(" ")[8][:-1])
+				time = abs(reptime - float(ar[0][i]))
+				print(time)
 				no_ereq+=1
 				if source[i]=='192.168.100.1':
 					no_ereqs+=1
@@ -33,7 +35,7 @@ def compute(info,length,ip,source,destination) :
 					d_ereqr+=(int(length[i])-42)
 					no_ereqr+=1
 			if "Echo (ping) reply " in info[i]:
-				print(info[i],source[i],destination[i])
+				
 				no_erep+=1
 				
 					
@@ -47,6 +49,7 @@ def compute(info,length,ip,source,destination) :
 	print(b_ereqr,d_ereqr,b_ereqs,d_ereqs)
 
 	#Time based metrics
+	#Distance based metrics
 compute(ar[5],ar[4],"192.168.100.1",ar[1],ar[2])
 
 
