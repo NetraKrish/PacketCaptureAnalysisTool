@@ -1,6 +1,6 @@
-def filter(filename):
+def filter(filename,num):
     icmp_data = []
-
+    file=open("filteredNode"+num+".txt","w")
     with open(filename, 'r') as f:
         lines = f.readlines()
         for i in range(len(lines)):
@@ -13,5 +13,8 @@ def filter(filename):
                 length = data[5]
                 info = " ".join(data[6:])
                 icmp_data.append([time, source_ip, dest_ip, protocol, length, info])
+                file.write(" ".join(data))
+                file.write("\n\n")
+    
 
     return icmp_data
